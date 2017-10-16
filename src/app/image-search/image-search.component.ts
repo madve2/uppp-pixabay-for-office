@@ -10,6 +10,7 @@ export class ImageSearchComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.queryInput = this.currentQuery;
   }
 
   @Input() images: any[];
@@ -20,8 +21,13 @@ export class ImageSearchComponent implements OnInit {
   @Input() currentQuery: string;
   @Input() errorMessage: string;
 
+  queryInput: string;
+
+  private queryTextChanged() {
+    this.onQueryChanged.emit({query: this.queryInput, page: 1});
+  }
+
   private pageChanged(page: number) {
-    console.log("cq: " + this.currentQuery);
     this.onQueryChanged.emit({query: this.currentQuery, page: page});
   }
 

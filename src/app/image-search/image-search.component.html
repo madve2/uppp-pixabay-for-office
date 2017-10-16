@@ -1,6 +1,7 @@
-<div *ngIf="loaded" class="card">
-  <input type="text" [value]="currentQuery" />
-</div>
+<form (ngSubmit)="queryTextChanged()" #searchForm="ngForm">
+  <input class="form-control" type="text" [(ngModel)]="queryInput" name="queryInput" />
+  <button type="submit" class="btn btn-success" [disabled]="loading">Search</button>
+</form>
 <div *ngIf="loaded" class="card">
   <div class="image-grid">
     <div *ngFor="let image of images">
