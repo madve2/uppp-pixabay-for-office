@@ -1,0 +1,23 @@
+<div *ngIf="loaded" class="card">
+  <input type="text" [value]="currentQuery" />
+</div>
+<div *ngIf="loaded" class="card">
+  <div class="image-grid">
+    <div *ngFor="let image of images">
+      <img [alt]="currentQuery" class="img-responsive" [src]="image.previewURL" />
+    </div>
+  </div>
+  <div class="pagination">
+    <ngb-pagination [collectionSize]="count" [(page)]="page" (pageChange)="pageChanged($event)" pageSize="20" maxSize="5" [disabled]="loading"></ngb-pagination>
+  </div>
+</div>
+<div *ngIf="loading" class="progress-container">
+    <ngb-progressbar type="info" [value]="100" [striped]="true" [animated]="true"></ngb-progressbar>
+</div>
+<div *ngIf="!loaded && !loading" class="card">
+    <div class="card-body">
+        <h4 class="card-title">Something went wrong</h4>
+        <p class="card-text">{{errorMessage}}</p>
+        <a href="#" class="btn btn-primary" (click)="retryQuery()">Retry</a>
+      </div>
+</div>

@@ -17,7 +17,7 @@
       "test": "test.ts",
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
-      "prefix": "app",
+      "prefix": "uppp",
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.css",
         "styles.css"

@@ -10,6 +10,7 @@ import { Store } from "@ngrx/store";
 import * as fromRoot from "../index";
 import { environment } from "../../../environments/environment";
 import { Observable } from "rxjs/Observable";
+import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class ImagesService {
@@ -18,13 +19,13 @@ export class ImagesService {
   getImages(request: {query: string, page: number}): Observable<any> {
     return this.http
       .request(
-        `${environment.baseUrl}/api/?key=${environment.apiKey}&q=${encodeURIComponent(request.query)}&page=${request.page}&image_type=photo`,
+        `${environment.baseUrl}?key=${environment.apiKey}&q=${encodeURIComponent(request.query)}&page=${request.page}&image_type=photo`,
         { method: RequestMethod.Get }
       )
       .map(response => response.json())
-      .catch(response => {
-        if (!environment.production) console.log(response);
-        return Observable.throw(response);
+      .catch(error => {
+        if (!environment.production) console.log(error);
+        return Observable.throw("Please try again later"); //TODO: can't actually get status code / error message due to CORS issue
       });
   }
 }
