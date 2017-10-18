@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+    width: 100%;
+    min-height: 100%;
+}
+body {
+    padding: 20px;
+}
+body::before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("assets/bg.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    opacity: 0.5;
+    z-index: -1;
+}

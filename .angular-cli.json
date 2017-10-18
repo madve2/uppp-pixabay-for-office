@@ -19,14 +19,16 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "uppp",
       "styles": [
-        "../node_modules/bootstrap/dist/css/bootstrap.css",
+        "assets/bootstrap-darkly.css",
+        "lib/jQuery-flexImages-master/jquery.flex-images.css",
         "styles.css"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.js",
         "../node_modules/tether/dist/js/tether.js",
         "../node_modules/popper.js/dist/umd/popper.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.js"
+        "../node_modules/bootstrap/dist/js/bootstrap.js",
+        "lib/jQuery-flexImages-master/jquery.flex-images.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

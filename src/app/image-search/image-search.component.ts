@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+declare var $ : any
 
 @Component({
   selector: 'uppp-image-search',
@@ -36,4 +37,8 @@ export class ImageSearchComponent implements OnInit {
   }
   
   @Output() onQueryChanged = new EventEmitter<{query: string, page: number}>();
+
+  ngAfterViewChecked() {
+    $('.flex-images').flexImages();
+  }
 }

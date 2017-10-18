@@ -1,13 +1,6 @@
-<div class="card">
-  <h1 class="card-header">Unofficial Pixabay Plugin for PowerPoint</h1>
-  <div class="card-block">
-    <div class="container-fluid">
-      <div class="row">
-        <uppp-image-search class="col-md-4" [images]="images$ | async" [count]="imagesCount$ | async" [page]="imagesPage$ | async"
-          [loading]="imagesLoading$ | async" [loaded]="imagesLoaded$ | async"
-          [currentQuery]="imagesCurrentQuery$ | async" [errorMessage]="imagesErrorMessage$ | async"
-          (onQueryChanged)="onImagesQueryChanged($event)"></uppp-image-search>
-      </div>
-    </div>
-  </div>
-</div>
+<h1>
+  Unofficial Pixabay Plugin for PowerPoint</h1>
+
+<uppp-image-search [images]="images$ | async" [count]="imagesCount$ | async" [page]="imagesPage$ | async" [loading]="imagesLoading$ | async"
+  [loaded]="imagesLoaded$ | async" [currentQuery]="imagesCurrentQuery$ | async" [errorMessage]="imagesErrorMessage$ | async"
+  (onQueryChanged)="onImagesQueryChanged($event)"></uppp-image-search>
