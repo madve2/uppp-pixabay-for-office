@@ -1,7 +1,11 @@
-a {
-    display: block;
+footer {
     margin-top: 20px;
+}
+
+a {
+    display: inline-block;
     color: #ebebeb;
+    text-decoration: none;
 }
 
 a:hover {
