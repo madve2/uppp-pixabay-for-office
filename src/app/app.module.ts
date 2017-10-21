@@ -13,6 +13,7 @@ import { ImageSearchComponent } from './image-search/image-search.component';
 import { environment } from '../environments/environment';
 import { HttpModule } from "@angular/http";
 import { FooterComponent } from './footer/footer.component';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { FooterComponent } from './footer/footer.component';
     EffectsModule.forRoot([ImageEffects])
   ],
   providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
     ImagesService
   ],
   bootstrap: [AppComponent]

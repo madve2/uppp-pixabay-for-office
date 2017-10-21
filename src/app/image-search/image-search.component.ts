@@ -24,19 +24,19 @@ export class ImageSearchComponent implements OnInit {
 
   queryInput: string;
 
-  private queryTextChanged() {
+  queryTextChanged() {
     this.onQueryChanged.emit({query: this.queryInput, page: 1});
   }
 
-  private pageChanged(page: number) {
+  pageChanged(page: number) {
     this.onQueryChanged.emit({query: this.currentQuery, page: page});
   }
 
-  private retryQuery() {
+  retryQuery() {
     this.onQueryChanged.emit({query: this.currentQuery, page: this.page});    
   }
 
-  private imageRequested(url) {
+  imageRequested(url) {
     this.onImageRequested.emit(url)
   }
   
