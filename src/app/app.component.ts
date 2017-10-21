@@ -36,4 +36,8 @@ export class AppComponent implements OnInit {
   onImagesQueryChanged(request: {query: string, page: number}) {
     this.store.dispatch(new images.LoadImagesAction({ query: request.query, page: request.page }));
   }
+
+  onImageRequested(webformatURL: string) {
+    this.store.dispatch(new images.DownloadImageAction({ url: webformatURL }));
+  }
 }

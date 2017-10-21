@@ -6,7 +6,7 @@
 <div *ngIf="loaded && images.length > 0">
   <div class="flex-images">
     <div *ngFor="let image of images" class="item" [attr.data-w]="image.previewWidth" [attr.data-h]="image.previewHeight">
-      <img [alt]="currentQuery" [src]="image.previewURL">
+      <img [alt]="currentQuery" (click)="imageRequested(image.webformatURL)" [src]="image.previewURL">
     </div>
   </div>
   <div class="pagination">

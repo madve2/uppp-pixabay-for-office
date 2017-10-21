@@ -4,7 +4,9 @@ export const ImageActionTypes = {
     LOAD: "Load images",
     LOAD_SUCCESS: "Successfully loaded images",
     LOAD_FAILURE: "Failed to load images",
-    SET_SELECTED: "Set selected image"
+    DOWNLOAD: "Download image",
+    DOWNLOAD_SUCCESS: "Successfully downloaded image",
+    DOWNLOAD_FAILURE: "Failed to download image"
   };
   
   export class LoadImagesAction implements Action {
@@ -19,6 +21,19 @@ export const ImageActionTypes = {
     type = ImageActionTypes.LOAD_SUCCESS;
     constructor(public payload: any) {}
   }
+
+  export class DownloadImageAction implements Action {
+    type = ImageActionTypes.DOWNLOAD;
+    constructor(public payload: { url: string }) {}
+  }
+  export class DownloadImageFailedAction implements Action {
+    type = ImageActionTypes.DOWNLOAD_FAILURE;
+    constructor(public payload: { message: string }){}
+  }
+  export class DownloadImageSuccessAction implements Action {
+    type = ImageActionTypes.DOWNLOAD_SUCCESS;
+    constructor(public payload: { base64Image: string }) {}
+  }
   
-  export type ImageActions = LoadImagesAction | LoadImagesFailedAction | LoadImagesSuccessAction    
+  export type ImageActions = LoadImagesAction | LoadImagesFailedAction | LoadImagesSuccessAction | DownloadImageAction | DownloadImageFailedAction | DownloadImageSuccessAction;
   

@@ -9,6 +9,11 @@ export interface State {
     page: number;
     currentQuery: string;
     errorMessage: string;
+    downloading: boolean;
+    downloaded: boolean;
+    selectedUrl: string;
+    downloadedBase64Image: string;
+    downloadErrorMessage: string;
   }
   
   const initialState: State = {
@@ -19,6 +24,11 @@ export interface State {
     page: 1,
     currentQuery: "",
     errorMessage: null,
+    downloading: false,
+    downloaded: true,
+    selectedUrl: null,
+    downloadedBase64Image: null,
+    downloadErrorMessage: null
   };
   
   export function reducer(
@@ -59,6 +69,35 @@ export interface State {
           errorMessage: (action as images.LoadImagesFailedAction).payload.message
         };
       }
+      case images.ImageActionTypes.DOWNLOAD: {
+        const payload = (action as images.DownloadImageAction).payload;
+        return {
+          ...state,
+          downloaded: false,
+          downloading: true,
+          selectedUrl: payload.url,
+          downloadedBase64Image: null,
+          downloadErrorMessage: null
+        };
+      }
+      case images.ImageActionTypes.DOWNLOAD_SUCCESS: {
+        const payload = (action as images.DownloadImageSuccessAction).payload;
+        return {
+          ...state,
+          downloaded: true,
+          downloading: false,
+          downloadedBase64Image: payload.base64Image
+        };
+      }
+      case images.ImageActionTypes.LOAD_FAILURE: {
+        return {
+          ...state,
+          downloaded: false,
+          downloading: false,
+          downloadedBase64Image: null,
+          errorMessage: (action as images.DownloadImageFailedAction).payload.message
+        };
+      }
       default:
         return state;
     }
@@ -71,4 +110,8 @@ export interface State {
   export const getLoaded = (state: State) => state.loaded;
   export const getCurrentQuery = (state: State) => state.currentQuery;
   export const getErrorMessage = (state: State) => state.errorMessage;
-  
+  export const getDownloading = (state: State) => state.downloading;
+  export const getDownloaded = (state: State) => state.downloaded;
+  export const getSelectedUrl = (state: State) => state.selectedUrl
+  export const getDownloadedBase64Image = (state: State) => state.downloadedBase64Image;
+  export const getDownloadErrorMessage = (state: State) => state.downloadErrorMessage;

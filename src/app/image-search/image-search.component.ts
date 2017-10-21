@@ -35,8 +35,13 @@ export class ImageSearchComponent implements OnInit {
   private retryQuery() {
     this.onQueryChanged.emit({query: this.currentQuery, page: this.page});    
   }
+
+  private imageRequested(url) {
+    this.onImageRequested.emit(url)
+  }
   
   @Output() onQueryChanged = new EventEmitter<{query: string, page: number}>();
+  @Output() onImageRequested = new EventEmitter<string>();
 
   ngAfterViewChecked() {
     $('.flex-images').flexImages();

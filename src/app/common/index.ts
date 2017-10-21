@@ -55,3 +55,23 @@ import {
     getImagesState,
     fromImages.getErrorMessage
   );
+  export const getImageDownloaded = createSelector(
+    getImagesState,
+    fromImages.getDownloaded
+  );
+  export const getImageDownloading = createSelector(
+    getImagesState,
+    fromImages.getDownloading
+  );
+  export const getImageSelectedUrl = createSelector(
+    getImagesState,
+    fromImages.getSelectedUrl
+  );
+  export const getImageDownloadedBase64 = createSelector(
+    getImagesState,
+    fromImages.getDownloadedBase64Image
+  );
+  export const getImageDownloadErrorMessage = createSelector(
+    getImagesState,
+    fromImages.getDownloadErrorMessage
+  );

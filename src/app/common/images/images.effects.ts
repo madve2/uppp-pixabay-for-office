@@ -7,7 +7,7 @@ import { Injectable } from "@angular/core";
 import * as images from "./images.actions";
 import { Actions, Effect } from "@ngrx/effects";
 import { ImagesService } from "./images.service";
-import { LoadImagesAction, LoadImagesSuccessAction, LoadImagesFailedAction } from "./images.actions";
+import { LoadImagesAction, LoadImagesSuccessAction, LoadImagesFailedAction, DownloadImageAction, DownloadImageFailedAction, DownloadImageSuccessAction } from "./images.actions";
 
 @Injectable()
 export class ImageEffects {
@@ -22,5 +22,15 @@ export class ImageEffects {
       return this.service.getImages( { query: payload.query, page: payload.page })
         .map(result =>  new LoadImagesSuccessAction(result))
         .catch(error => Observable.of(new LoadImagesFailedAction({ message: error })));
+    });
+
+  @Effect()
+  downloadImage$ = this.actions
+    .ofType(images.ImageActionTypes.DOWNLOAD)
+    .switchMap(a => {
+      const payload = (a as DownloadImageAction).payload;
+      return this.service.downloadImage( payload.url )
+        .map(result => new DownloadImageSuccessAction( { base64Image: result }))
+        .catch(error => Observable.of(new DownloadImageFailedAction({ message: error })));
     });
 }
