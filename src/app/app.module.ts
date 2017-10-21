@@ -12,11 +12,13 @@ import { ImagesService } from "./common/images/images.service";
 import { ImageSearchComponent } from './image-search/image-search.component';
 import { environment } from '../environments/environment';
 import { HttpModule } from "@angular/http";
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ImageSearchComponent
+    ImageSearchComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
