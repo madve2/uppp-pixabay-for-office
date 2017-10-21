@@ -16,3 +16,7 @@ ngb-pagination {
 .item {
     border: none;
 }
+.card {
+    display: inline-block;
+    padding: 15px;
+}
