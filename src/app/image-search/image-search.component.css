@@ -23,6 +23,13 @@ ngb-pagination {
     right: 5px;
     bottom: 5px;
 }
+.item > img {
+    background-color: #333;
+}
+.item > img:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
 .card {
     display: inline-block;
     padding: 15px;
