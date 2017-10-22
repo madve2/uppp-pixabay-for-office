@@ -21,6 +21,8 @@ export class ImageSearchComponent implements OnInit {
   @Input() loaded: boolean;
   @Input() currentQuery: string;
   @Input() errorMessage: string;
+  @Input() imageDownloading : boolean;
+  @Input() imageSelected : string;
 
   queryInput: string;
 

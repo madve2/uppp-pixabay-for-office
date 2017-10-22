@@ -18,6 +18,9 @@ export class AppComponent implements OnInit {
   imagesLoaded$ : Observable<boolean>;
   imagesCurrentQuery$ : Observable<string>;
   imagesErrorMessage$ : Observable<string>;
+  imageDownloading$ : Observable<boolean>;
+  imageSelected$ : Observable<string>;
+
 
   constructor(private store: Store<fromRoot.State>) {
     this.images$ = store.select(fromRoot.getImagesEntities);
@@ -27,6 +30,8 @@ export class AppComponent implements OnInit {
     this.imagesLoaded$ = store.select(fromRoot.getImagesLoaded);
     this.imagesCurrentQuery$ = store.select(fromRoot.getImagesCurrentQuery);
     this.imagesErrorMessage$ = store.select(fromRoot.getImagesErrorMessage);
+    this.imageDownloading$ = store.select(fromRoot.getImageDownloading);
+    this.imageSelected$ = store.select(fromRoot.getImageSelectedUrl);
   }
 
   ngOnInit() {

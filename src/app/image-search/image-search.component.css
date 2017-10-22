@@ -15,6 +15,13 @@ ngb-pagination {
 }
 .item {
     border: none;
+    position: relative;
+}
+.item > ngb-progressbar {
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
 }
 .card {
     display: inline-block;
