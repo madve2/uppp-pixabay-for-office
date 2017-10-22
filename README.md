@@ -2,9 +2,9 @@
 
 Using this add-in you can search free (Creative Commons CC0 licensed) images on [Pixabay](https://pixabay.com) right inside Word or PowerPoint – and insert them with one click.
 
-![UPPP! Screenshot inside PowerPoint](readme-img\screenshot-powerpoint.png)
+![UPPP! Screenshot inside PowerPoint](readme-img/screenshot-powerpoint.png)
 
-![UPPP! Screenshot inside Word](readme-img\screenshot-word.png)
+![UPPP! Screenshot inside Word](readme-img/screenshot-word.png)
 
 ## Installation
 
