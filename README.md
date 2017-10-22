@@ -64,7 +64,7 @@ Tested in Word 2016 & PowerPoint 2016.
 
 #### macOS and iPad
 
-Download and copy the manifest file [uppp-vs.xml](https://raw.githubusercontent.com/madve2/uppp-pixabay-for-office/master/uppp-vs.xml), and follow [these steps](https://github.com/OfficeDev/office-js-docs/blob/master/docs/testing/sideload-an-office-add-in-on-ipad-and-mac.md).
+Download the manifest file [uppp-vs.xml](https://raw.githubusercontent.com/madve2/uppp-pixabay-for-office/master/uppp-vs.xml), and follow [these steps](https://github.com/OfficeDev/office-js-docs/blob/master/docs/testing/sideload-an-office-add-in-on-ipad-and-mac.md).
 
 ## Building the add-in yourself
 
