@@ -25,7 +25,6 @@ export class ImagesService {
 
   downloadImage(webformatURL: string): Observable<string> {
     const hqUrl = webformatURL.replace("_640", "_960"); //The way Pixabay redommends doing it
-    const dataUrlHead = "data:image/jpeg;base64,";
     return this.http.request(
       hqUrl,
       { method: RequestMethod.Get, responseType: ResponseContentType.Blob }
@@ -39,7 +38,7 @@ export class ImagesService {
       reader.onloadend = evt => { result.next(reader.result); };
       return result;
     })
-    .map((dataUrl: string) => dataUrl.substr(dataUrlHead.length))
+    .map((dataUrl: string) => dataUrl.substr(dataUrl.indexOf(',') + 1))
     .mergeMap(base64Image => {
       if (!Office.context.document) {
         return Observable.throw("Current document is not available. Please run the add-in from PowerPoint or Word.");
