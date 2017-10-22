@@ -29,7 +29,7 @@ Your network share is now available. Select and copy its path (e.g. `\\COMPUTERN
 
 Now you need to tell Word / PowerPoint about this location.
 
-1. Create a new document
+1. Open Word or PowerPoint, and create a new document
 2. Select *File > Options > Trust Center > Trust Center Settings > Trusted Add-in Catalogs*.
 3. In the *Catalog Url* field, paste the path of the manifests folder (e.g. `\\COMPUTERNAME\manifests`). Click the Add catalog button. It will show up in the list below.
 4. In the list, check the *Show in menu* box and then click OK.
