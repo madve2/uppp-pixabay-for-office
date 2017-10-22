@@ -20,6 +20,8 @@ export class AppComponent implements OnInit {
   imagesErrorMessage$ : Observable<string>;
   imageDownloading$ : Observable<boolean>;
   imageSelected$ : Observable<string>;
+  imageDownloadSuccessMessage$ : Observable<string>;
+  imageDownloadErrorMessage$ : Observable<string>;
 
 
   constructor(private store: Store<fromRoot.State>) {
@@ -32,6 +34,8 @@ export class AppComponent implements OnInit {
     this.imagesErrorMessage$ = store.select(fromRoot.getImagesErrorMessage);
     this.imageDownloading$ = store.select(fromRoot.getImageDownloading);
     this.imageSelected$ = store.select(fromRoot.getImageSelectedUrl);
+    this.imageDownloadSuccessMessage$ = store.select(fromRoot.getImageDownloadSuccessMessage);
+    this.imageDownloadErrorMessage$ = store.select(fromRoot.getImageDownloadErrorMessage);
   }
 
   ngOnInit() {

@@ -6,11 +6,11 @@ import { environment } from './environments/environment';
 
 declare var Office;
 
-function bootstrap() {
-  if (environment.production) {
-    enableProdMode();
-  }
+if (environment.production) {
+  enableProdMode();
+}
 
+function bootstrap() {
   platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.log(err));
 }

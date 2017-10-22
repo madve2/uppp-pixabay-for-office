@@ -12,8 +12,8 @@ export interface State {
     downloading: boolean;
     downloaded: boolean;
     selectedUrl: string;
-    downloadedBase64Image: string;
     downloadErrorMessage: string;
+    downloadSuccessMessage: string;
   }
   
   const initialState: State = {
@@ -27,8 +27,8 @@ export interface State {
     downloading: false,
     downloaded: true,
     selectedUrl: null,
-    downloadedBase64Image: null,
-    downloadErrorMessage: null
+    downloadErrorMessage: null,
+    downloadSuccessMessage: null
   };
   
   export function reducer(
@@ -44,7 +44,12 @@ export interface State {
           loading: true,
           page: payload.page,
           currentQuery: payload.query,
-          errorMessage: null
+          errorMessage: null,
+          downloading: false,
+          downloaded: true,
+          selectedUrl: null,
+          downloadErrorMessage: null,
+          downloadSuccessMessage: null
         };
       }
       case images.ImageActionTypes.LOAD_SUCCESS: {
@@ -76,8 +81,8 @@ export interface State {
           downloaded: false,
           downloading: true,
           selectedUrl: payload.url,
-          downloadedBase64Image: null,
-          downloadErrorMessage: null
+          downloadErrorMessage: null,
+          downloadSuccessMessage: null,
         };
       }
       case images.ImageActionTypes.DOWNLOAD_SUCCESS: {
@@ -86,16 +91,15 @@ export interface State {
           ...state,
           downloaded: true,
           downloading: false,
-          downloadedBase64Image: payload.base64Image
+          downloadSuccessMessage: payload.message
         };
       }
-      case images.ImageActionTypes.LOAD_FAILURE: {
+      case images.ImageActionTypes.DOWNLOAD_FAILURE: {
         return {
           ...state,
           downloaded: false,
           downloading: false,
-          downloadedBase64Image: null,
-          errorMessage: (action as images.DownloadImageFailedAction).payload.message
+          downloadErrorMessage: (action as images.DownloadImageFailedAction).payload.message
         };
       }
       default:
@@ -113,5 +117,5 @@ export interface State {
   export const getDownloading = (state: State) => state.downloading;
   export const getDownloaded = (state: State) => state.downloaded;
   export const getSelectedUrl = (state: State) => state.selectedUrl
-  export const getDownloadedBase64Image = (state: State) => state.downloadedBase64Image;
+  export const getDownloadSuccessMessage = (state: State) => state.downloadSuccessMessage;
   export const getDownloadErrorMessage = (state: State) => state.downloadErrorMessage;

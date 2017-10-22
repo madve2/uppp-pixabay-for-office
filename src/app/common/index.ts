@@ -67,9 +67,9 @@ import {
     getImagesState,
     fromImages.getSelectedUrl
   );
-  export const getImageDownloadedBase64 = createSelector(
+  export const getImageDownloadSuccessMessage = createSelector(
     getImagesState,
-    fromImages.getDownloadedBase64Image
+    fromImages.getDownloadSuccessMessage
   );
   export const getImageDownloadErrorMessage = createSelector(
     getImagesState,
