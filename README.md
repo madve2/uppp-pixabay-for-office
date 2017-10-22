@@ -16,6 +16,22 @@ The add-in is being published, stay tuned! In the meantime, you can "sideload" i
 
 Until the add-in becomes available in the Office Store, you can sideload it to start using it. It only takes a few minutes to complete these steps.
 
+You can use the add-in with Office Online, or with the desktop apps on Windows or macOS, or even with iPad.
+
+#### Office Online
+
+1. Download the manifest file [uppp-vs.xml](https://raw.githubusercontent.com/madve2/uppp-pixabay-for-office/master/uppp-vs.xml)
+2. Open Word Online or PowerPoint Online. (E.g. open a Word or PowerPoint document on OneDrive in the browser.)
+3. On the Insert tab of the Ribbon, click *Office Add-ins*
+4. Click *Upload My Add-in* in the upper-right corner
+5. Select the manifest file you downloaded, click Upload
+
+From now on, the UPPP! add-in will be available on the Insert tab, anytime you need it.
+
+![The UPPP! icon as seen on the Ribbon](readme-img/ribbon-button.png)
+
+#### Windows
+
 The add-in is actually available online, you just need to download the _manifest file_ (see below) and put it in a place where Word / PowerPoint expects to find it. This _has to be_ a network share, even if you install it just for yourself – but don't worry, it's very easy to create one.
 
 1. Create a folder called `manifests` somewhere on your computer (e.g. `C:\Share\manifests`).
@@ -44,7 +60,11 @@ From now on, the UPPP! add-in will be available on the Insert tab, anytime you n
 
 If you complete these steps for one application (e.g. Word), and you want to use the add-in in the other (e.g. PowerPoint), you should be able to start at Step 5., as the catalogs are shared between apps.
 
-Tested in Word 2016 & PowerPoint 2016 on Windows.
+Tested in Word 2016 & PowerPoint 2016.
+
+#### macOS and iPad
+
+Download and copy the manifest file [uppp-vs.xml](https://raw.githubusercontent.com/madve2/uppp-pixabay-for-office/master/uppp-vs.xml), and follow [these steps](https://github.com/OfficeDev/office-js-docs/blob/master/docs/testing/sideload-an-office-add-in-on-ipad-and-mac.md).
 
 ## Building the add-in yourself
 
