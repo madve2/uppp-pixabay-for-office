@@ -75,7 +75,7 @@ export class ImagesService {
 
     return this.http
       .request(
-        `${environment.baseUrl}?key=${environment.apiKey}&q=${encodeURIComponent(request.query)}&page=${request.page}&image_type=photo&per_page=10`,
+        `${environment.baseUrl}?key=${environment.apiKey}&q=${encodeURIComponent(request.query)}&page=${request.page}&image_type=photo&per_page=10&safesearch=true`,
         { method: RequestMethod.Get }
       )
       .map(response => {

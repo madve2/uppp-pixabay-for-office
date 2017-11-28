@@ -1,10 +1,10 @@
-# UPPP! Pixabay Images for Microsoft Word & PowerPoint
+# Pixabay Images for Microsoft Word & PowerPoint
 
 Using this add-in you can search free (Creative Commons CC0 licensed) images on [Pixabay](https://pixabay.com) right inside Word or PowerPoint – and insert them with one click.
 
-![UPPP! Screenshot inside PowerPoint](readme-img/screenshot-powerpoint.png)
+![Pixabay Images Screenshot inside PowerPoint](readme-img/screenshot-powerpoint.png)
 
-![UPPP! Screenshot inside Word](readme-img/screenshot-word.png)
+![Pixabay Images Screenshot inside Word](readme-img/screenshot-word.png)
 
 ## Installation
 
@@ -26,9 +26,9 @@ You can use the add-in with Office Online, or with the desktop apps on Windows o
 4. Click *Upload My Add-in* in the upper-right corner
 5. Select the manifest file you downloaded, click Upload
 
-From now on, the UPPP! add-in will be available on the Insert tab, anytime you need it.
+From now on, the Pixabay Images add-in will be available on the Insert tab, anytime you need it.
 
-![The UPPP! icon as seen on the Ribbon](readme-img/ribbon-button.png)
+![The Pixabay Images icon as seen on the Ribbon](readme-img/ribbon-button.png)
 
 #### Windows
 
@@ -50,13 +50,13 @@ Now you need to tell Word / PowerPoint about this location.
 3. In the *Catalog Url* field, paste the path of the manifests folder (e.g. `\\COMPUTERNAME\manifests`). Click the Add catalog button. It will show up in the list below.
 4. In the list, check the *Show in menu* box and then click OK.
 5. On the Ribbon, select the Insert tab, and select My Add-ins. Select the *Shared Folder* tab.
-6. Select the UPPP! add-in and click Insert. The add-in will load.
+6. Select the Pixabay Images add-in and click Insert. The add-in will load.
 
 ![My Add-ins](readme-img/addins.png)
 
-From now on, the UPPP! add-in will be available on the Insert tab, anytime you need it.
+From now on, the Pixabay Images add-in will be available on the Insert tab, anytime you need it.
 
-![The UPPP! icon as seen on the Ribbon](readme-img/ribbon-button.png)
+![The Pixabay Images icon as seen on the Ribbon](readme-img/ribbon-button.png)
 
 If you complete these steps for one application (e.g. Word), and you want to use the add-in in the other (e.g. PowerPoint), you should be able to start at Step 5., as the catalogs are shared between apps.
 

@@ -5,10 +5,10 @@
 - Use https://madve2.github.io/uppp-app/ for the deployment version
 - Use ~remoteAppUrl/ to debug with VS -->
 
-<OfficeApp 
-          xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" 
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-          xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" 
+<OfficeApp
+          xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
           xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
           xsi:type="TaskPaneApp">
 
@@ -18,11 +18,11 @@
   <Id>6840ae38-9964-42ce-b92a-060f297338f1</Id>
 
   <!--Version. Updates from the store only get triggered if there is a version change. -->
-  <Version>1.0.0.0</Version>
+  <Version>1.0.0.1</Version>
   <ProviderName>Daniel Kis-Nagy</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <!-- The display name of your add-in. Used on the store and various places of the Office UI such as the add-ins dialog. -->
-  <DisplayName DefaultValue="UPPP! Images from Pixabay" />
+  <DisplayName DefaultValue="Pixabay Images" />
   <Description DefaultValue="Search free images on Pixabay and insert them into your document."/>
   <!-- Icon for your add-in. Used on installation screens and the add-ins dialog. -->
   <IconUrl DefaultValue="https://madve2.github.io/uppp-app/assets/Button-32x32.png" />
@@ -33,7 +33,7 @@
     <AppDomain>https://pixabay.com</AppDomain>
   </AppDomains>
   <!--End Basic Settings. -->
-  
+
   <!--Begin TaskPane Mode integration. This section is used if there are no VersionOverrides or if the Office client version does not support add-in commands. -->
   <Hosts>
     <Host Name="Presentation" />
@@ -48,7 +48,7 @@
 
   <!-- Begin Add-in Commands Mode integration. -->
   <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
-    
+
     <!-- The Hosts node is required. -->
     <Hosts>
       <!-- Each host can have a different set of commands. -->
@@ -68,7 +68,7 @@
             <!-- Points to a URL resource which details how the add-in should be used. -->
             <LearnMoreUrl resid="Uppp.GetStarted.LearnMoreUrl"/>
           </GetStarted>
-          
+
           <!-- PrimaryCommandSurface is the main Office Ribbon. -->
           <ExtensionPoint xsi:type="PrimaryCommandSurface">
             <!-- Use OfficeTab to extend an existing Tab. Use CustomTab to create a new tab. -->
@@ -172,7 +172,7 @@
         </DesktopFormFactor>
       </Host>
     </Hosts>
-    
+
     <!-- You can use resources across hosts and form factors. -->
     <Resources>
       <bt:Images>
@@ -187,13 +187,13 @@
       <!-- ShortStrings max characters==125. -->
       <bt:ShortStrings>
         <bt:String id="Uppp.TaskpaneButton.Label" DefaultValue="Images from Pixabay" />
-        <bt:String id="Uppp.Group1Label" DefaultValue="UPPP!" />
+        <bt:String id="Uppp.Group1Label" DefaultValue="Pixabay Images" />
         <bt:String id="Uppp.GetStarted.Title" DefaultValue="Search free images on Pixabay and insert them into your document" />
       </bt:ShortStrings>
       <!-- LongStrings max characters==250. -->
       <bt:LongStrings>
         <bt:String id="Uppp.TaskpaneButton.Tooltip" DefaultValue="Click to search free images on Pixabay and insert them into your document." />
-        <bt:String id="Uppp.GetStarted.Description" DefaultValue="Thanks for installing UPPP! Go to the Insert tab and click the 'Images from Pixabay' button to get started." />
+        <bt:String id="Uppp.GetStarted.Description" DefaultValue="Thanks for installing Pixabay Images! Go to the Insert tab and click the 'Images from Pixabay' button to get started." />
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>

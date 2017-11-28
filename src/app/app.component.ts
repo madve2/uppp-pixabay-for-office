@@ -49,4 +49,8 @@ export class AppComponent implements OnInit {
   onImageRequested(webformatURL: string) {
     this.store.dispatch(new images.DownloadImageAction({ url: webformatURL }));
   }
+
+  onMessageDismissed() {
+    this.store.dispatch(new images.ClearMessageAction());
+  }
 }

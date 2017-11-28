@@ -6,9 +6,10 @@ export const ImageActionTypes = {
     LOAD_FAILURE: "Failed to load images",
     DOWNLOAD: "Download image",
     DOWNLOAD_SUCCESS: "Successfully downloaded & inserted image",
-    DOWNLOAD_FAILURE: "Failed to download or insert image"
+    DOWNLOAD_FAILURE: "Failed to download or insert image",
+    CLEAR_MESSAGE: "Clear success / failure message" //TODO this isn't really an image action
   };
-  
+
   export class LoadImagesAction implements Action {
     type = ImageActionTypes.LOAD;
     constructor(public payload: { page: number, query: string }) {}
@@ -34,6 +35,9 @@ export const ImageActionTypes = {
     type = ImageActionTypes.DOWNLOAD_SUCCESS;
     constructor(public payload: { message: string }) {}
   }
-  
-  export type ImageActions = LoadImagesAction | LoadImagesFailedAction | LoadImagesSuccessAction | DownloadImageAction | DownloadImageFailedAction | DownloadImageSuccessAction;
-  
+  export class ClearMessageAction implements Action {
+    type = ImageActionTypes.CLEAR_MESSAGE;
+    constructor() {}
+  }
+
+  export type ImageActions = LoadImagesAction | LoadImagesFailedAction | LoadImagesSuccessAction | DownloadImageAction | DownloadImageFailedAction | DownloadImageSuccessAction | ClearMessageAction;

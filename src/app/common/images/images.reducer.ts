@@ -15,7 +15,7 @@ export interface State {
     downloadErrorMessage: string;
     downloadSuccessMessage: string;
   }
-  
+
   const initialState: State = {
     loaded: false,
     loading: false,
@@ -30,7 +30,7 @@ export interface State {
     downloadErrorMessage: null,
     downloadSuccessMessage: null
   };
-  
+
   export function reducer(
     state = initialState,
     action: Action
@@ -102,11 +102,18 @@ export interface State {
           downloadErrorMessage: (action as images.DownloadImageFailedAction).payload.message
         };
       }
+      case images.ImageActionTypes.CLEAR_MESSAGE: {
+        return {
+          ...state,
+          downloadErrorMessage: null,
+          downloadSuccessMessage: null,
+        }
+      }
       default:
         return state;
     }
   }
-  
+
   export const getEntities = (state: State) => state.entities;
   export const getPage = (state: State) => state.page;
   export const getCount = (state: State) => state.count;

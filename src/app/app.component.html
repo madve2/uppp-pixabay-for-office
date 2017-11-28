@@ -4,10 +4,10 @@
   (onQueryChanged)="onImagesQueryChanged($event)" (onImageRequested)="onImageRequested($event)"></uppp-image-search>
 <uppp-footer></uppp-footer>
 
-<ngb-alert *ngIf="imageDownloadSuccessMessage$ | async" type="success" [dismissible]="false">
+<ngb-alert *ngIf="imageDownloadSuccessMessage$ | async" type="success" [dismissible]="true" (close)="onMessageDismissed()">
   <strong>Success!</strong> {{imageDownloadSuccessMessage$ | async}}
 </ngb-alert>
 
-<ngb-alert *ngIf="imageDownloadErrorMessage$ | async" type="danger" [dismissible]="false">
+<ngb-alert *ngIf="imageDownloadErrorMessage$ | async" type="danger" [dismissible]="true" (close)="onMessageDismissed()">
   <strong>Error!</strong> {{imageDownloadErrorMessage$ | async}}
 </ngb-alert>
