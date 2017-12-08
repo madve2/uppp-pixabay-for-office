@@ -10,11 +10,16 @@ Using this add-in you can search free (Creative Commons CC0 licensed) images on 
 
 ### Directly from the Office Store
 
-The add-in is being published, stay tuned! In the meantime, you can "sideload" it to start using it – see the next section.
+1. Open a new document in Word or PowerPoint
+2. On the _Insert_ tab, click _Office Add-ins_
+3. Click _Store_, and just search for Pixabay
+4. Click the _Add_ button next to _Pixabay images_
+
+Alternatively, you can get it from [https://appsource.microsoft.com/en-us/product/office/WA104381335?tab=Overview](https://appsource.microsoft.com/en-us/product/office/WA104381335?tab=Overview)
 
 ### Sideloading
 
-Until the add-in becomes available in the Office Store, you can sideload it to start using it. It only takes a few minutes to complete these steps.
+If you want to load a development version of the add-in, you will need to sideload it. It only takes a few minutes to complete these steps.
 
 You can use the add-in with Office Online, or with the desktop apps on Windows or macOS, or even with iPad.
 
