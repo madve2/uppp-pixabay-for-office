@@ -1,6 +1,103 @@
 <form (ngSubmit)="queryTextChanged()" #searchForm="ngForm">
-  <input class="form-control" type="text" [(ngModel)]="queryInput" name="queryInput" />
-  <button type="submit" class="btn btn-success" [disabled]="loading">Search</button>
+  <div class="search-bar">
+    <input class="form-control search-box" type="text" [(ngModel)]="queryInput" name="queryInput" />
+    <button type="submit" class="btn btn-success" [disabled]="loading">Search</button>
+  </div>
+
+  <div class="form-group form-check">
+    <input class="form-check-input" type="checkbox" id="toggle_advanced" [checked]="advancedSearch" (change)="advancedSearch = !advancedSearch">
+    <label class="form-check-label" for="toggle_advanced">
+      Advanced search
+    </label>
+  </div>
+
+  <div class="search-options" *ngIf="advancedSearch">
+    <div class="form-group">
+      <label for="image_type">Image type</label>
+      <select class="form-control" id="image_type">
+        <option value="all">All</option>
+        <option value="photo">Photo</option>
+        <option value="illustration">Illustration</option>
+        <option value="vector">Vector</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="orientation">Orientation</label>
+      <select class="form-control" id="orientation">
+        <option value="all">All</option>
+        <option value="horizontal">Horizontal</option>
+        <option value="vertical">Vertical</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category</label>
+      <select class="form-control" id="category">
+        <option value="all">All</option>
+        <option value="animals">Animals</option>
+        <option value="backgrounds">Backgrounds</option>
+        <option value="buildings">Buildings</option>
+        <option value="business">Business</option>
+        <option value="computer">Computer</option>
+        <option value="education">Education</option>
+        <option value="fashion">Fashion</option>
+        <option value="feelings">Feelings</option>
+        <option value="food">Food</option>
+        <option value="health">Health</option>
+        <option value="industry">Industry</option>
+        <option value="music">Music</option>
+        <option value="nature">Nature</option>
+        <option value="people">People</option>
+        <option value="places">Places</option>
+        <option value="religion">Religion</option>
+        <option value="science">Science</option>
+        <option value="sports">Sports</option>
+        <option value="transportation">Transportation</option>
+        <option value="travel">Travel</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="min_size">Image size</label>
+      <select class="form-control" id="min_size">
+        <option value="all">Any</option>
+        <option value="all">400x300+</option>
+        <option value="all">640x480+</option>
+        <option value="all">800x600+</option>
+        <option value="all">1024x768+</option>
+        <option value="all">1600x1200+</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Miscellaneous</label>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="editors_choice">
+        <label class="form-check-label" for="editors_choice">Editor's Choice</label>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="safesearch">
+        <label class="form-check-label" for="safesearch">Safe Search – only images suitable for all ages</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Ordering</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="order" id="order_popular" value="popular" checked>
+        <label class="form-check-label" for="order_popular">
+          Popular images first
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="order" id="order_latest" value="latest">
+        <label class="form-check-label" for="order_latest">
+          Latest images first
+        </label>
+      </div>
+    </div>
+  </div>
 </form>
 
 <div *ngIf="loaded && images.length > 0">

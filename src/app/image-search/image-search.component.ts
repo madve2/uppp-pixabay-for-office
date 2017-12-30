@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-declare var $ : any
+declare var $ : any;
 
 @Component({
   selector: 'uppp-image-search',
@@ -25,6 +25,7 @@ export class ImageSearchComponent implements OnInit {
   @Input() imageSelected : string;
 
   queryInput: string;
+  advancedSearch: boolean;
 
   queryTextChanged() {
     this.onQueryChanged.emit({query: this.queryInput, page: 1});
@@ -35,13 +36,13 @@ export class ImageSearchComponent implements OnInit {
   }
 
   retryQuery() {
-    this.onQueryChanged.emit({query: this.currentQuery, page: this.page});    
+    this.onQueryChanged.emit({query: this.currentQuery, page: this.page});
   }
 
   imageRequested(url) {
     this.onImageRequested.emit(url)
   }
-  
+
   @Output() onQueryChanged = new EventEmitter<{query: string, page: number}>();
   @Output() onImageRequested = new EventEmitter<string>();
 

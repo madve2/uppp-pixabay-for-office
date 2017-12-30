@@ -1,4 +1,15 @@
-form {
+.form-group {
+    margin: 10px 0;
+    padding: 4px;
+}
+.form-check {
+  margin-left: 1.25rem;
+}
+.form-check-label {
+  padding: 2px;
+  user-select: none;
+}
+.search-bar {
     display: flex;
     margin: 10px 0;
 }
@@ -6,10 +17,11 @@ form {
     margin: 4px;
     flex: 0 0 auto;
 }
-.form-control {
+.search-box {
     margin: 3px 4px;
     flex: 1 1 auto;
 }
+
 ngb-pagination {
     margin: 10px 4px;
 }
