@@ -20,7 +20,7 @@ export class ImageEffects {
     .ofType(images.ImageActionTypes.LOAD)
     .switchMap(a => {
       const payload = (a as LoadImagesAction).payload;
-      return this.service.getImages({ query: payload.query, page: payload.page })
+      return this.service.getImages({ query: payload.query, page: payload.page, options: payload.options })
         .map(result => new LoadImagesSuccessAction(result))
         .catch(error => Observable.of(new LoadImagesFailedAction({ message: error })));
     });

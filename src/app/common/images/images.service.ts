@@ -64,8 +64,8 @@ export class ImagesService {
     });
 }
 
-  getImages(request: {query: string, page: number}): Observable<any> {
-    var cacheKey = JSON.stringify(request);
+  getImages(request: {query: string, page: number, options?: any}): Observable<any> {
+    let cacheKey = JSON.stringify(request);
     let cachedResponse = lscache.get(cacheKey);
     if (cachedResponse) {
       if (!environment.production)
@@ -73,9 +73,18 @@ export class ImagesService {
       return Observable.of(cachedResponse);
     }
 
+    let requestUrl = `${environment.baseUrl}?key=${environment.apiKey}&q=${encodeURIComponent(request.query)}&page=${request.page}&per_page=10`;
+    if (request.options) {
+      for (var property in request.options) {
+        if (request.options.hasOwnProperty(property)) {
+          requestUrl += `&${property}=${request.options[property]}`;
+        }
+      }
+    }
+
     return this.http
       .request(
-        `${environment.baseUrl}?key=${environment.apiKey}&q=${encodeURIComponent(request.query)}&page=${request.page}&image_type=photo&per_page=10&safesearch=true`,
+        requestUrl,
         { method: RequestMethod.Get }
       )
       .map(response => {

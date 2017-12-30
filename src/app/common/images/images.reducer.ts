@@ -43,7 +43,7 @@ export interface State {
           loaded: false,
           loading: true,
           page: payload.page,
-          currentQuery: payload.query,
+          currentQuery: payload.query, //TODO should we store query options as well?
           errorMessage: null,
           downloading: false,
           downloaded: true,
@@ -123,6 +123,6 @@ export interface State {
   export const getErrorMessage = (state: State) => state.errorMessage;
   export const getDownloading = (state: State) => state.downloading;
   export const getDownloaded = (state: State) => state.downloaded;
-  export const getSelectedUrl = (state: State) => state.selectedUrl
+  export const getSelectedUrl = (state: State) => state.selectedUrl;
   export const getDownloadSuccessMessage = (state: State) => state.downloadSuccessMessage;
   export const getDownloadErrorMessage = (state: State) => state.downloadErrorMessage;

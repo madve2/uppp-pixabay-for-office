@@ -1,4 +1,4 @@
-<form (ngSubmit)="queryTextChanged()" #searchForm="ngForm">
+<form (ngSubmit)="queryChanged()" #searchForm="ngForm">
   <div class="search-bar">
     <input class="form-control search-box" type="text" [(ngModel)]="queryInput" name="queryInput" />
     <button type="submit" class="btn btn-success" [disabled]="loading">Search</button>
@@ -14,7 +14,7 @@
   <div class="search-options" *ngIf="advancedSearch">
     <div class="form-group">
       <label for="image_type">Image type</label>
-      <select class="form-control" id="image_type">
+      <select class="form-control" name="image_type" id="image_type" [(ngModel)]="options.image_type">
         <option value="all">All</option>
         <option value="photo">Photo</option>
         <option value="illustration">Illustration</option>
@@ -24,7 +24,7 @@
 
     <div class="form-group">
       <label for="orientation">Orientation</label>
-      <select class="form-control" id="orientation">
+      <select class="form-control" name="orientation" id="orientation" [(ngModel)]="options.orientation">
         <option value="all">All</option>
         <option value="horizontal">Horizontal</option>
         <option value="vertical">Vertical</option>
@@ -33,7 +33,7 @@
 
     <div class="form-group">
       <label for="category">Category</label>
-      <select class="form-control" id="category">
+      <select class="form-control" name="category" id="category" [(ngModel)]="options.category">
         <option value="all">All</option>
         <option value="animals">Animals</option>
         <option value="backgrounds">Backgrounds</option>
@@ -60,24 +60,24 @@
 
     <div class="form-group">
       <label for="min_size">Image size</label>
-      <select class="form-control" id="min_size">
-        <option value="all">Any</option>
-        <option value="all">400x300+</option>
-        <option value="all">640x480+</option>
-        <option value="all">800x600+</option>
-        <option value="all">1024x768+</option>
-        <option value="all">1600x1200+</option>
+      <select class="form-control" id="min_size" (change)="minSizeChanged($event.target.value)">
+        <option value="0x0" selected>Any</option>
+        <option value="400x300">400x300+</option>
+        <option value="640x480">640x480+</option>
+        <option value="800x600">800x600+</option>
+        <option value="1024x768">1024x768+</option>
+        <option value="1600x1200">1600x1200+</option>
       </select>
     </div>
 
     <div class="form-group">
       <label>Miscellaneous</label>
       <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="editors_choice">
+        <input type="checkbox" class="form-check-input" name="editors_choice" id="editors_choice" [checked]="options.editors_choice" (change)="options.editors_choice = !options.editors_choice">
         <label class="form-check-label" for="editors_choice">Editor's Choice</label>
       </div>
       <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="safesearch">
+        <input type="checkbox" class="form-check-input" name="safesearch" id="safesearch" [checked]="options.safesearch" (change)="options.safesearch = !options.safesearch">
         <label class="form-check-label" for="safesearch">Safe Search – only images suitable for all ages</label>
       </div>
     </div>
@@ -85,13 +85,13 @@
     <div class="form-group">
       <label>Ordering</label>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="order" id="order_popular" value="popular" checked>
+        <input class="form-check-input" type="radio" name="order" id="order_popular" [value]="'popular'" [(ngModel)]="options.order" checked>
         <label class="form-check-label" for="order_popular">
           Popular images first
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="order" id="order_latest" value="latest">
+        <input class="form-check-input" type="radio" name="order" id="order_latest" [value]="'latest'" [(ngModel)]="options.order">
         <label class="form-check-label" for="order_latest">
           Latest images first
         </label>

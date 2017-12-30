@@ -12,7 +12,7 @@ export const ImageActionTypes = {
 
   export class LoadImagesAction implements Action {
     type = ImageActionTypes.LOAD;
-    constructor(public payload: { page: number, query: string }) {}
+    constructor(public payload: { page: number, query: string, options?: any }) {}
   }
   export class LoadImagesFailedAction implements Action {
     type = ImageActionTypes.LOAD_FAILURE;
