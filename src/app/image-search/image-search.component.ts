@@ -26,6 +26,7 @@ export class ImageSearchComponent implements OnInit, AfterViewChecked {
 
   queryInput: string;
   advancedSearchVisible: boolean;
+  selectedMinSize = "0x0";
   options = {
     image_type: "all",
     orientation: "all",
@@ -42,7 +43,7 @@ export class ImageSearchComponent implements OnInit, AfterViewChecked {
     this.onQueryChanged.emit({query: this.queryInput, page: 1, options: this.options});
   }
 
-  minSizeChanged(value) { //TODO we don't update this the other way around (but currently we don't need to)
+  minSizeChanged(value) {
     let sizes = value.split("x");
     if (sizes.length !== 2)
       return;

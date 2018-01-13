@@ -60,7 +60,7 @@
 
     <div class="form-group">
       <label for="min_size">Image size</label>
-      <select class="form-control" id="min_size" (change)="minSizeChanged($event.target.value)">
+      <select class="form-control" name="min_size" id="min_size" [(ngModel)]="selectedMinSize" (change)="minSizeChanged($event.target.value)">
         <option value="0x0" selected>Any</option>
         <option value="400x300">400x300+</option>
         <option value="640x480">640x480+</option>
@@ -97,8 +97,9 @@
         </label>
       </div>
     </div>
-
-    <button *ngIf="advancedSearchVisible" type="submit" class="btn btn-success" [disabled]="loading">Search</button>
+    <div class="form-group">
+      <button *ngIf="advancedSearchVisible" type="submit" class="btn btn-success" [disabled]="loading">Search</button>
+    </div>
   </div>
 </form>
 
