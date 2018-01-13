@@ -25,7 +25,7 @@ export class ImageSearchComponent implements OnInit, AfterViewChecked {
   @Input() imageSelected : string;
 
   queryInput: string;
-  advancedSearch: boolean;
+  advancedSearchVisible: boolean;
   options = {
     image_type: "all",
     orientation: "all",
@@ -38,7 +38,8 @@ export class ImageSearchComponent implements OnInit, AfterViewChecked {
   };
 
   queryChanged() {
-    this.onQueryChanged.emit({query: this.queryInput, page: 1, options: this.advancedSearch ? this.options : null});
+    this.advancedSearchVisible = false;
+    this.onQueryChanged.emit({query: this.queryInput, page: 1, options: this.options});
   }
 
   minSizeChanged(value) { //TODO we don't update this the other way around (but currently we don't need to)
@@ -50,11 +51,11 @@ export class ImageSearchComponent implements OnInit, AfterViewChecked {
   }
 
   pageChanged(page: number) {
-    this.onQueryChanged.emit({query: this.currentQuery, page: page, options: this.advancedSearch ? this.options : null});
+    this.onQueryChanged.emit({query: this.currentQuery, page: page, options: this.options});
   }
 
   retryQuery() {
-    this.onQueryChanged.emit({query: this.currentQuery, page: this.page, options: this.advancedSearch ? this.options : null});
+    this.onQueryChanged.emit({query: this.currentQuery, page: this.page, options: this.options});
   }
 
   imageRequested(url) {

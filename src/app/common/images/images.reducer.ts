@@ -43,7 +43,7 @@ export interface State {
           loaded: false,
           loading: true,
           page: payload.page,
-          currentQuery: payload.query, //TODO should we store query options as well?
+          currentQuery: payload.query,
           errorMessage: null,
           downloading: false,
           downloaded: true,

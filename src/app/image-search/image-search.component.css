@@ -21,7 +21,13 @@
     margin: 3px 4px;
     flex: 1 1 auto;
 }
-
+.advanced-search-toggle {
+  margin-bottom: 15px;
+  font-size: 0.8em;
+}
+.hidden-check-input {
+  display: none;
+}
 ngb-pagination {
     margin: 10px 4px;
 }
